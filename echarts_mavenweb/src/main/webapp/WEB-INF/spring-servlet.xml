@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  xmlns="http://www.springframework.org/schema/beans"  
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:p="http://www.springframework.org/schema/p"  
+        xmlns:aop="http://www.springframework.org/schema/aop" 
+        xmlns:context="http://www.springframework.org/schema/context" 
+        xmlns:mvc="http://www.springframework.org/schema/mvc"  
+        xmlns:tx="http://www.springframework.org/schema/tx"  
+        xsi:schemaLocation="http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd  
+            http://www.springframework.org/schema/context   
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd  
+            http://www.springframework.org/schema/tx   
+            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd  
+            http://www.springframework.org/schema/aop   
+            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/mvc 
+            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">  
+    
+    
+    <mvc:annotation-driven />
+
+     <!-- 设置使用注解的类所在的jar包 -->
+    <context:component-scan base-package="com.echarts.controllers" /> 
+    
+    <bean id="mediaTypes" class="org.springframework.beans.factory.config.MapFactoryBean">
+      <property name="sourceMap">  
+        <map>  
+          <entry key="json" value="application/json"/>
+          <entry key="jsonp" value="application/javascript"/>
+          <entry key="xml" value="text/xml"/>
+          <entry key="html" value="text/html"/>  
+        </map>  
+      </property>  
+    </bean>
+
+    <bean id="viewResolvers" class="org.springframework.beans.factory.config.ListFactoryBean">
+      <property name="sourceList">    
+        <list> 
+          <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+             p:prefix="/jsp/" p:suffix=".jsp" />           
+          <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>       
+        </list>  
+      </property>
+    </bean>
+
+    <bean id="defaultViews" class="org.springframework.beans.factory.config.ListFactoryBean">
+      <property name="sourceList">    
+        <list> 
+          <!--
+          <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+          -->
+          <bean class="com.echarts.views.MappingJackson2JsonpView"/>      
+        </list>  
+      </property>
+    </bean>
+
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">      
+      <property name="mediaTypes"  ref="mediaTypes" /> 
+    </bean>   
+ 
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">    
+      <property name="contentNegotiationManager" ref="contentNegotiationManager" />   
+      <property name="order" value="1" />
+      <property name="favorPathExtension" value="true"/>                
+      <property name="viewResolvers" ref="viewResolvers"/>   
+      <property name="defaultViews" ref="defaultViews"/>          
+    </bean>
+
+         
+        
+
+</beans>
