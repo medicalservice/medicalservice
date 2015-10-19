@@ -1,5 +1,5 @@
 var ip = "10.1.73.43";
-var port = "8088";
+var port = "8080";
 var projectId = "echarts_mavenweb";
 var serverUrl = "http://" + ip + ":" + port + "/" + projectId;
 
