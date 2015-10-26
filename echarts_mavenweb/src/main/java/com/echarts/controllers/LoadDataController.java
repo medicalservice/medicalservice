@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.echarts.entities.PieData;
 import com.echarts.models.PieDataModel;
 import com.echarts.models.User;
 import com.echarts.services.LoadDataService;
@@ -51,7 +52,17 @@ public class LoadDataController {
 	@RequestMapping(value = "/loaddata.jsonp"/*, method = { RequestMethod.POST }
 					headers = { "Accept=application/json" }*/)
 	//@ResponseBody
-	public PieDataModel[] loadData() {				
-		return service.loadData();		 
+	public PieDataModel[] load() {				
+		return service.load();		 
 	}
+	
+	@RequestMapping(value = "/savedata.jsonp"/*, method = { RequestMethod.POST }
+			headers = { "Accept=application/json" }*/)
+	public void save() {
+		PieData data = new PieData();
+		data.setName("A");
+		data.setValue(335);
+		service.save(data);		 
+	}
+	
 }

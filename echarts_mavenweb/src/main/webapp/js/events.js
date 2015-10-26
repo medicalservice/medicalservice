@@ -69,6 +69,14 @@ $(document).ready(function() {
 		});		
 		
 		//loadData();
+	});
+
+	$("#saveData").click(function() {	
+		$.ajax({
+			type : "POST",
+			url : serverUrl + "/savedata.jsonp",
+			dataType : 'jsonp'
+		});		
 	});	
 
 	$("#loadData").click(function() {

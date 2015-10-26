@@ -1,28 +1,29 @@
 package com.echarts.services.impl;
 
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.echarts.daos.LoadDataDao;
+import com.echarts.entities.PieData;
 import com.echarts.models.PieDataModel;
 import com.echarts.services.LoadDataService;
 
 @Service("loaddataservice")
+@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class LoadDataServiceImpl implements LoadDataService {
+	@Autowired
+	private LoadDataDao dao;
+	
+	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
+	public PieDataModel[] load() {
+		return dao.load();
+	}
 
-	public PieDataModel[] loadData() {
-		PieDataModel data1 = new PieDataModel();
-		data1.setName("A");
-		data1.setValue(335);
-		PieDataModel data2 = new PieDataModel();
-		data2.setName("B");
-		data2.setValue(679);
-		PieDataModel data3 = new PieDataModel();
-		data3.setName("C");
-		data3.setValue(1548);
-		
-		PieDataModel[] datas = new PieDataModel[] { data1, data2, data3 };		
-		
-		return datas;
+	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
+	public void save(PieData data) {
+		dao.save(data);		
 	}
 
 }
