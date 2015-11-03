@@ -1,5 +1,5 @@
-var ip = "10.1.73.43";
-var port = "8080";
+var ip = "10.1.73.88";
+var port = "8090";
 var projectId = "echarts_mavenweb";
 var serverUrl = "http://" + ip + ":" + port + "/" + projectId;
 
@@ -97,6 +97,38 @@ $(document).ready(function() {
 		});		
 		
 		//loadData();
+	});
+
+	$("#oneToOne").click(function() {	
+		$.ajax({
+			type : "POST",
+			url : serverUrl + "/onetoone.jsonp",
+			dataType : 'jsonp'
+		});		
+	});
+
+	$("#oneToMany").click(function() {	
+		$.ajax({
+			type : "POST",
+			url : serverUrl + "/onetomany.jsonp",
+			dataType : 'jsonp'
+		});		
+	});
+
+	$("#manyToOne").click(function() {	
+		$.ajax({
+			type : "POST",
+			url : serverUrl + "/manyToOne.jsonp",
+			dataType : 'jsonp'
+		});		
+	});	
+
+	$("#manyToMany").click(function() {	
+		$.ajax({
+			type : "POST",
+			url : serverUrl + "/manyToMany.jsonp",
+			dataType : 'jsonp'
+		});		
 	});
 
 	$("#draw").click(function() {
