@@ -2,4 +2,4 @@
 *.class
 *.classpath
 /echarts_mavenweb/target
-*/.setting
+*/.settings
