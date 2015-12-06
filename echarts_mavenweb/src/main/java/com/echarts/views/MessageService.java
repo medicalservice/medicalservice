@@ -1,4 +1,4 @@
-package com.echarts.test;
+package com.echarts.views;
 
 public interface MessageService {
 	String getMessage();

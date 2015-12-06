@@ -1,4 +1,4 @@
-package com.echarts.test;
+package com.echarts.views;
 
 import java.io.IOException;
 import java.util.ArrayList;
