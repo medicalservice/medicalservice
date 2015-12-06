@@ -7,7 +7,7 @@
   <artifactId>licorice</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Maven Webapp</name>
+  <name>licorice</name>
   <url>http://maven.apache.org</url>
   <dependencies>
 	  <dependency>
@@ -91,6 +91,6 @@
   </dependencies>
        
   <build>
-    <finalName>echarts_mavenweb</finalName>
+    <finalName>licorice</finalName>
   </build>
 </project>

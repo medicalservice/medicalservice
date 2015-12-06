@@ -16,6 +16,6 @@ hs_err_pid*
 *.bak
 *.class
 *.classpath
-/echarts_mavenweb/target
+/licorice/target
 */.settings
-/echarts_mavenweb/.project
+/licorice/.project
