@@ -1,4 +1,4 @@
-package com.echarts.views;
+package com.licorice.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.echarts.views;
+package com.licorice.test;
 
 import java.io.IOException;
 import java.util.ArrayList;
