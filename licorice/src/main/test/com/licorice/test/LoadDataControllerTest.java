@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.echarts.controllers.LoadDataController;
-import com.echarts.models.User;
+import com.licorice.controller.LoadDataController;
+import com.licorice.model.User;
 
 public class LoadDataControllerTest {
 	@Test

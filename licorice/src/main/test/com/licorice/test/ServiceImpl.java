@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.echarts.entities.PieData;
+import com.licorice.entity.PieData;
 
 public class ServiceImpl implements IService {
 	private SessionFactory sessionFactory;

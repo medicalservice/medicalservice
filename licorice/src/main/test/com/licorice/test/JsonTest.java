@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.echarts.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.licorice.model.User;
 
 public class JsonTest {
 
