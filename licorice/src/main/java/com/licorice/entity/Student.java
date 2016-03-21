@@ -10,11 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="student")
@@ -33,6 +33,9 @@ public class Student {
 	
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Book> books;
+	
+	@ManyToMany(mappedBy = "students", cascade=CascadeType.ALL )
+	private Set<Teacher> teachers;
 	
 	public Integer getId() {
 		return id;
@@ -64,5 +67,13 @@ public class Student {
 
 	public void setBooks(Set<Book> books) {
 		this.books = books;
+	}
+
+	public Set<Teacher> getTeachers() {
+		return teachers;
+	}
+
+	public void setTeachers(Set<Teacher> teachers) {
+		this.teachers = teachers;
 	}
 }

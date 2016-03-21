@@ -1,6 +1,6 @@
-var ip = "10.1.73.98";
-var port = "8080";
-var projectId = "echarts_mavenweb";
+var ip = "10.1.73.32";
+var port = "8088";
+var projectId = "licorice";
 var serverUrl = "http://" + ip + ":" + port + "/" + projectId;
 
 $(document).ready(function() {
@@ -126,7 +126,7 @@ $(document).ready(function() {
 	$("#manyToMany").click(function() {	
 		$.ajax({
 			type : "POST",
-			url : serverUrl + "/manyToMany.jsonp",
+			url : serverUrl + "/manytomany.jsonp",
 			dataType : 'jsonp'
 		});		
 	});
